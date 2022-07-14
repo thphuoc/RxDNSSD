@@ -126,7 +126,7 @@ public class DNSSDActivity extends AppCompatActivity {
     private void startBrowse() {
         Log.i("TAG", "start browse");
         try {
-            browseService = dnssd.browse("_rxdnssd._tcp", new BrowseListener() {
+            browseService = dnssd.browse("_http._tcp", new BrowseListener() {
                 @Override
                 public void serviceFound(DNSSDService browser, int flags, int ifIndex, final String serviceName, String regType, String domain) {
                     Log.d("TAG", "Found " + serviceName);

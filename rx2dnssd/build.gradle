@@ -1,12 +1,13 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion 32
 
     defaultConfig {
-        minSdkVersion 14
-        targetSdkVersion 30
+        minSdkVersion 24
+        targetSdkVersion 32
     }
+    buildToolsVersion '32.0.0'
 
     buildTypes {
         release {
@@ -52,4 +53,4 @@ ext {
     PUBLISH_ARTIFACT_ID = 'rx2dnssd'
 }
 
-apply from: "${rootProject.projectDir}/publish-module.gradle"
+//apply from: "${rootProject.projectDir}/publish-module.gradle"

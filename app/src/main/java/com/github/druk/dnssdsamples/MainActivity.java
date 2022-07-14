@@ -114,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void startBrowse() {
         Log.i("TAG", "start browse");
-        browseDisposable = rxDnssd.browse("_rxdnssd._tcp", "local.")
+        browseDisposable = rxDnssd.browse("_http._tcp", "local.")
                 .compose(rxDnssd.resolve())
                 .compose(rxDnssd.queryIPRecords())
                 .subscribeOn(Schedulers.io())
@@ -140,7 +140,7 @@ public class MainActivity extends AppCompatActivity {
     private void register(final Button button) {
         Log.i("TAG", "register");
         button.setEnabled(false);
-        BonjourService bs = new BonjourService.Builder(0, 0, Build.DEVICE, "_rxdnssd._tcp", null).port(123).build();
+        BonjourService bs = new BonjourService.Builder(0, 0, Build.DEVICE, "_http._tcp", null).port(8080).build();
         registerDisposable = rxDnssd.register(bs)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
